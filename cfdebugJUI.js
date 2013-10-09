@@ -1,0 +1,17 @@
+$(document).ready(function(){
+	if($('.cfdebug').length) {
+		var cfDebugBT = $('<div id="cfDebugBT" title="Click Here for Debug">')
+			.css({position:"fixed", left:"0", bottom:"0", 'z-index':"60000001", cursor:"pointer", 'user-select': "none"})
+			.html('CF Debug Show')
+			.bind('click',function(){
+				$('#cfDebugOverlay').toggle();
+				$('#cfDebugBT span').text('CF Debug '+($('#cfDebugOverlay').is(':visible') ? 'Hide' : 'Show'));
+				$('html').css({overflow: ($('#cfDebugOverlay').is(':visible') ? 'hidden' : 'auto') });
+		});
+		$('table.cfdebug:eq(0)')
+			.wrap(function(i){return $('<div id="cfDebugOverlay">').css({position:"absolute", left:"0", top:"0", right:"0", bottom:"0", 'z-index':60000000, overflow:"auto", background:"white", display:"none", padding:"20px"});})
+			.css({'margin-bottom':"30px"});
+		$('#cfDebugOverlay').before(cfDebugBT);
+		$('#cfDebugBT').button();
+	};
+});
