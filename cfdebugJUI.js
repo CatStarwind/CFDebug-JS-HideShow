@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	if($('.cfdebug').length) {
 		var cfDebugBT = $('<div id="cfDebugBT" title="Click Here for Debug">')
-			.css({position:"fixed", left:"0", bottom:"0", 'z-index':"60000001", cursor:"pointer", 'user-select': "none"})
+			.css({'z-index':"60000001", 'user-select': "none"})
 			.html('CF Debug Show')
 			.bind('click',function(){
 				$('#cfDebugOverlay').toggle();
@@ -12,6 +12,6 @@ $(document).ready(function(){
 			.wrap(function(i){return $('<div id="cfDebugOverlay">').css({position:"absolute", left:"0", top:"0", right:"0", bottom:"0", 'z-index':60000000, overflow:"auto", background:"white", display:"none", padding:"20px"});})
 			.css({'margin-bottom':"30px"});
 		$('#cfDebugOverlay').before(cfDebugBT);
-		$('#cfDebugBT').button();
+		$('#cfDebugBT').button().draggable().position({my:"left bottom", at:"left bottom"});
 	};
 });
