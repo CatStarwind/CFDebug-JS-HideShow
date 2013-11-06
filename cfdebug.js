@@ -9,7 +9,7 @@ $(document).ready(function(){
 				$('html').css({overflow: ($('.cfDebugOverlay').is(':visible') ? 'hidden' : 'auto') });
 		});
 		$('table.cfdebug:eq(0)')
-			.wrap(function(i){return $('<div class="cfDebugOverlay">').css({position:"absolute", left:"0", top:"0", right:"0", bottom:"0", 'z-index':60000000, overflow:"auto", background:"white", display:"none", padding:"20px"});})
+			.wrap(function(i){return $('<div class="cfDebugOverlay">').css({position:"fixed", left:"0", top:"0", right:"0", bottom:"0", 'z-index':60000000, overflow:"auto", background:"white", display:"none", padding:"20px"});})
 			.css({'margin-bottom':"30px"});
 		$('.cfDebugOverlay').before(cfDebugBT);
 	};
